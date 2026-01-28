@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="600" viewBox="0 0 1920 600">
+  <rect width="1920" height="600" fill="#5D4037"/>
+  <rect x="100" y="200" width="300" height="300" fill="#8D6E63" rx="10"/>
+  <rect x="500" y="150" width="250" height="350" fill="#A1887F" rx="10"/>
+  <circle cx="1400" cy="300" r="150" fill="#BCAAA4"/>
+  <text x="960" y="320" text-anchor="middle" fill="#FFF8E1" font-size="48" font-family="serif">Artisan Workshop</text>
+</svg>
