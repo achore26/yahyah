@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YAHYAH Curio Shop
+
+An e-commerce website for authentic African art and crafts, built with Next.js 14, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Product Catalog**: Browse 20+ authentic African crafts across 6 categories
+- **Shopping Cart**: Add items to cart with persistent storage (Zustand + localStorage)
+- **Email-based Orders**: Submit orders via EmailJS or WhatsApp
+- **Responsive Design**: Mobile-first design that works on all devices
+- **African-inspired Theme**: Warm amber and earth tone color palette
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand with persist middleware
+- **Animations**: Framer Motion
+- **Form Handling**: React Hook Form + Zod validation
+- **Email Service**: EmailJS
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.x or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/yahyah-curio.git
+cd yahyah-curio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create environment variables:
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Update `.env.local` with your configuration:
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+NEXT_PUBLIC_SITE_URL=https://yahyahcurio.co.ke
+NEXT_PUBLIC_BUSINESS_EMAIL=orders@yahyahcurio.co.ke
+NEXT_PUBLIC_BUSINESS_PHONE=+254700000000
+NEXT_PUBLIC_WHATSAPP_NUMBER=254700000000
+```
 
-## Learn More
+5. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+yahyah-curio/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── shop/              # Shop pages
+│   │   ├── page.tsx       # All products
+│   │   └── [id]/          # Product detail
+│   ├── categories/        # Category pages
+│   │   ├── page.tsx       # All categories
+│   │   └── [category]/    # Category products
+│   ├── cart/              # Shopping cart
+│   ├── about/             # About page
+│   └── contact/           # Contact page
+├── components/
+│   ├── layout/            # Header, Footer
+│   ├── home/              # Homepage sections
+│   ├── products/          # Product components
+│   ├── cart/              # Cart components
+│   └── ui/                # Reusable UI components
+├── lib/
+│   ├── products.ts        # Product data & utilities
+│   ├── cart-store.ts      # Cart state management
+│   ├── email-service.ts   # EmailJS integration
+│   └── utils.ts           # Utility functions
+├── types/
+│   └── index.ts           # TypeScript interfaces
+└── public/
+    └── images/            # Static images
+```
 
-## Deploy on Vercel
+## EmailJS Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create account at [emailjs.com](https://www.emailjs.com/)
+2. Add an email service (Gmail recommended)
+3. Create an email template with these variables:
+   - `{{customer_name}}`
+   - `{{customer_email}}`
+   - `{{customer_phone}}`
+   - `{{delivery_address}}`
+   - `{{items_list}}`
+   - `{{total_amount}}`
+   - `{{additional_notes}}`
+   - `{{order_date}}`
+4. Copy your Service ID, Template ID, and Public Key to `.env.local`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Deploy to Truehost cPanel
+
+1. Build the standalone output:
+```bash
+npm run build
+```
+
+2. Upload these files to your cPanel:
+   - `.next/standalone/` contents
+   - `.next/static/` → `.next/static/`
+   - `public/` folder
+   - `server.js`
+   - `package.json`
+
+3. In cPanel Node.js App:
+   - Set Node.js version to 18.x+
+   - Application mode: Production
+   - Startup file: `server.js`
+
+4. Install dependencies and restart the app.
+
+## Adding Products
+
+Edit `lib/products.ts` to add new products:
+
+```typescript
+{
+  id: 'prod-XXX',
+  name: 'Product Name',
+  description: 'Product description...',
+  price: 5000,
+  category: 'jewelry', // jewelry, wood-carvings, wall-art, textiles, pottery, baskets
+  images: ['https://example.com/image.jpg'],
+  inStock: true,
+  featured: false,
+  materials: ['Material 1', 'Material 2'],
+  artisan: 'Artisan Name',
+  origin: 'Location, Kenya'
+}
+```
+
+## How Orders Work
+
+1. Customer browses products and adds to cart
+2. Customer fills order form with contact details
+3. Order is sent via EmailJS or WhatsApp
+4. Shop owner receives order details
+5. Owner contacts customer to arrange payment (M-Pesa/Card)
+6. Product is shipped after payment confirmation
+
+## License
+
+This project is proprietary software for YAHYAH Curio Shop.
+
+## Support
+
+For technical support, contact the developer.

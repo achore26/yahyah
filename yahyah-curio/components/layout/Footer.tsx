@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 export default function Footer() {
@@ -10,9 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              <span className="text-amber-400">YAHYAH</span> CURIO
-            </h3>
+            <div className="mb-4">
+              <Image
+                src="/images/logo/logo.png"
+                alt="YAHYAH Curio Shop"
+                width={180}
+                height={56}
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="text-stone-400 text-sm leading-relaxed">
               Authentic African art and crafts. Handcrafted with love and
               tradition, bringing Africa&apos;s rich heritage to your home.

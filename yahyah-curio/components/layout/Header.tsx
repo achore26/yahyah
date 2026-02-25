@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { useCartStore } from '@/lib/cart-store';
 
@@ -39,11 +40,15 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl md:text-3xl font-bold text-white tracking-wide"
-          >
-            <span className="text-amber-300">YAHYAH</span> CURIO
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/images/logo/logo.png"
+              alt="YAHYAH Curio Shop"
+              width={160}
+              height={50}
+              className="h-36 md:h-40 w-auto -my-12"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
