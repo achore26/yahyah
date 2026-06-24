@@ -80,10 +80,36 @@ export default function CartSummary() {
         </div>
       </div>
 
+      {/* M-Pesa Payment Instructions */}
+      <div className="mt-6 bg-green-50 border border-green-200 rounded-xl p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <span className="text-white text-xs font-bold">M</span>
+          </div>
+          <h3 className="font-bold text-green-900 text-sm">Pay via M-Pesa</h3>
+        </div>
+        <div className="bg-white border border-green-200 rounded-lg p-3 mb-3 text-center">
+          <p className="text-xs text-stone-500 uppercase tracking-wide mb-1">Till Number</p>
+          <p className="text-3xl font-bold text-green-700 tracking-widest">3085757</p>
+          <p className="text-xs text-stone-500 mt-1">YAHYAH Curio Shop</p>
+        </div>
+        <ol className="text-xs text-green-800 space-y-1">
+          <li className="flex gap-2"><span className="font-bold">1.</span> Go to M-Pesa on your phone</li>
+          <li className="flex gap-2"><span className="font-bold">2.</span> Select <strong>Lipa na M-Pesa</strong></li>
+          <li className="flex gap-2"><span className="font-bold">3.</span> Select <strong>Buy Goods &amp; Services</strong></li>
+          <li className="flex gap-2"><span className="font-bold">4.</span> Enter Till No. <strong>3085757</strong></li>
+          <li className="flex gap-2"><span className="font-bold">5.</span> Enter amount: <strong>{formatPrice(totalPrice)}</strong></li>
+          <li className="flex gap-2"><span className="font-bold">6.</span> Enter your PIN and confirm</li>
+        </ol>
+        <p className="text-xs text-green-700 mt-3 bg-green-100 rounded p-2">
+          After payment, include your M-Pesa confirmation code in the order notes below.
+        </p>
+      </div>
+
       {/* Trust Badge */}
-      <div className="mt-6 flex items-center gap-2 text-sm text-stone-500">
+      <div className="mt-4 flex items-center gap-2 text-sm text-stone-500">
         <Shield className="w-4 h-4 text-green-600" />
-        <span>Secure checkout powered by M-Pesa & Card payments</span>
+        <span>Secure checkout — M-Pesa Till: 3085757</span>
       </div>
     </div>
   );

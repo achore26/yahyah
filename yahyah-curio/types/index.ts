@@ -21,7 +21,8 @@ export type CategoryType =
   | 'wall-art'
   | 'textiles'
   | 'pottery'
-  | 'baskets';
+  | 'baskets'
+  | 'stone-arts';
 
 export interface Category {
   id: CategoryType;

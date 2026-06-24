@@ -1,27 +1,70 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const SLIDES = [
+  '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg', // shop interior: masks, giraffes, shields
+  '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg', // shop interior: masks, giraffes
+  '/images/pixieset/c59b231f3483b143ab77e7a8fdb3774d-large.jpg', // shop display: chess sets, plates, giraffe
+  '/images/pixieset/66b55e62397fd26960096f06d88767a3-large.jpg', // wooden masks on wall
+  '/images/pixieset/03b54ae888f3cdd0201c598c3d0ea40b-large.jpg', // colourful animal figurines
+  '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg', // chess sets & decorative plates
+  '/images/pixieset/b9fd59d128f7241e9c674cbd56ce8b73-large.jpg', // chess sets & plates backlit
+  '/images/pixieset/ec70593e00b9f0d06927b354910dfe20-large.jpg', // Hakuna Matata plate & Maasai shield
+  '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg', // mask detail with beadwork
+  '/images/pixieset/21ded92243442dc7808711bf14699044-cover.jpg', // shop entrance at dusk
+];
 
 export default function HeroSection() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % SLIDES.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Slideshow Background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero/african-sunset.jpg"
-          alt="African landscape at sunset"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40" />
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={current}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Image
+              src={SLIDES[current]}
+              alt={`Slide ${current + 1}`}
+              fill
+              className="object-cover"
+              style={{ filter: 'sepia(40%) saturate(1.3) hue-rotate(-10deg) brightness(0.85)' }}
+              priority={current === 0}
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-950/75 via-stone-900/55 to-stone-800/35" />
       </div>
 
-      {/* Decorative Pattern Overlay */}
-      <div className="absolute inset-0 z-0 opacity-10 bg-[url('/images/patterns/african-pattern.svg')] bg-repeat" />
+      {/* Slide dots */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-amber-400 w-4' : 'bg-white/50'}`}
+          />
+        ))}
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-white text-center">

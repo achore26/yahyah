@@ -6,61 +6,68 @@ export const categories: Category[] = [
     name: 'Jewelry',
     description: 'Handcrafted beaded necklaces, bracelets, and earrings',
     icon: '/images/categories/jewelry.svg',
-    image: '/images/categories/jewelry-cover.jpg'
+    image: '/images/pixieset/a8db32aad36ade99fab054ea88322b62-large.jpg'
   },
   {
     id: 'wood-carvings',
     name: 'Wood Carvings',
     description: 'Traditional and contemporary wooden sculptures',
     icon: '/images/categories/wood-carving.svg',
-    image: '/images/categories/wood-carvings-cover.jpg'
+    image: '/images/pixieset/66b55e62397fd26960096f06d88767a3-large.jpg'
   },
   {
     id: 'wall-art',
     name: 'Wall Art',
     description: 'Paintings, prints, and decorative wall pieces',
     icon: '/images/categories/wall-art.svg',
-    image: '/images/categories/wall-art-cover.jpg'
+    image: '/images/pixieset/ec70593e00b9f0d06927b354910dfe20-large.jpg'
   },
   {
     id: 'textiles',
     name: 'Textiles',
     description: 'Authentic fabrics, rugs, and woven materials',
     icon: '/images/categories/textiles.svg',
-    image: '/images/categories/textiles-cover.jpg'
+    image: '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg'
   },
   {
     id: 'pottery',
     name: 'Pottery',
     description: 'Handmade ceramic bowls, vases, and vessels',
     icon: '/images/categories/pottery.svg',
-    image: '/images/categories/pottery-cover.jpg'
+    image: '/images/pixieset/d2283af892d14e2500dd97251e416590-large.jpg'
   },
   {
     id: 'baskets',
     name: 'Baskets',
     description: 'Woven storage and decorative baskets',
     icon: '/images/categories/baskets.svg',
-    image: '/images/categories/baskets-cover.jpg'
+    image: '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
+  },
+  {
+    id: 'stone-arts',
+    name: 'Stone Arts',
+    description: 'Hand-carved soapstone sculptures, figurines, and decorative pieces',
+    icon: '/images/categories/stone-arts.svg',
+    image: '/images/pixieset/67ae2cff94bbf38ebdbea07a11ec6ef8-large.jpg'
   }
 ];
 
 export const products: Product[] = [
-  // === WOOD CARVINGS (4 products, 5 images) ===
+  // === WOOD CARVINGS ===
   {
     id: 'prod-001',
-    name: 'Hand-Carved Wooden Sculpture',
-    description: 'Beautifully crafted wooden sculpture depicting traditional African motifs. Each piece tells a story of heritage and craftsmanship passed down through generations.',
+    name: 'Hand-Carved Wooden Mask',
+    description: 'Beautifully crafted wooden mask depicting traditional African motifs with intricate beadwork detail. Each piece tells a story of heritage and craftsmanship passed down through generations.',
     price: 8999,
     originalPrice: 12000,
     category: 'wood-carvings',
     images: [
-      '/images/products/wood-carvings-1.jpg',
-      '/images/products/wood-carvings-2.jpg'
+      '/images/pixieset/66b55e62397fd26960096f06d88767a3-large.jpg',
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg'
     ],
     inStock: true,
     featured: true,
-    materials: ['Mahogany wood', 'Natural finish'],
+    materials: ['Mahogany wood', 'Maasai beads', 'Natural finish'],
     dimensions: '30cm x 15cm x 12cm',
     weight: '1.2kg',
     artisan: 'Juma Kariuki',
@@ -74,8 +81,8 @@ export const products: Product[] = [
     originalPrice: 18000,
     category: 'wood-carvings',
     images: [
-      '/images/products/wood-carvings-3.jpg',
-      '/images/products/wood-carvings-1.jpg'
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg',
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
     ],
     inStock: true,
     featured: true,
@@ -92,8 +99,8 @@ export const products: Product[] = [
     price: 11000,
     category: 'wood-carvings',
     images: [
-      '/images/products/wood-carvings-4.jpg',
-      '/images/products/wood-carvings-2.jpg'
+      '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg',
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -110,8 +117,8 @@ export const products: Product[] = [
     price: 8500,
     category: 'wood-carvings',
     images: [
-      '/images/products/wood-carvings-5.jpg',
-      '/images/products/wood-carvings-3.jpg'
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg',
+      '/images/pixieset/66b55e62397fd26960096f06d88767a3-large.jpg'
     ],
     inStock: true,
     featured: true,
@@ -122,17 +129,16 @@ export const products: Product[] = [
     origin: 'Wamunyu, Kenya'
   },
 
-  // === JEWELRY (4 products, 10 images) ===
+  // === JEWELRY ===
   {
     id: 'prod-002',
-    name: 'Beaded Maasai Necklace',
-    description: 'Authentic Maasai beaded necklace handcrafted by local artisans. Vibrant colors and traditional patterns make this a unique statement piece.',
+    name: 'Beaded Maasai Pendant',
+    description: 'Authentic Maasai beaded pendant handcrafted by local artisans. Vibrant colors and traditional patterns make this a unique statement piece.',
     price: 4599,
     category: 'jewelry',
     images: [
-      '/images/products/jewelry-1.jpg',
-      '/images/products/jewelry-2.jpg',
-      '/images/products/jewelry-3.jpg'
+      '/images/pixieset/a8db32aad36ade99fab054ea88322b62-large.jpg',
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg'
     ],
     inStock: true,
     featured: true,
@@ -142,17 +148,17 @@ export const products: Product[] = [
   },
   {
     id: 'prod-007',
-    name: 'Copper Wire Earrings',
-    description: 'Elegant copper wire earrings with African-inspired spiral design. Lightweight and comfortable for everyday wear.',
+    name: 'Maasai Beaded Keychain',
+    description: 'Handcrafted Maasai beaded keychain featuring a traditional portrait design. A vibrant everyday accessory rooted in Kenyan culture.',
     price: 1800,
     category: 'jewelry',
     images: [
-      '/images/products/jewelry-4.jpg',
-      '/images/products/jewelry-5.jpg'
+      '/images/pixieset/a8db32aad36ade99fab054ea88322b62-large.jpg',
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg'
     ],
     inStock: true,
     featured: false,
-    materials: ['Copper wire', 'Sterling silver hooks'],
+    materials: ['Glass beads', 'Metal ring'],
     artisan: 'Nairobi Crafts Collective',
     origin: 'Nairobi, Kenya'
   },
@@ -163,9 +169,8 @@ export const products: Product[] = [
     price: 2200,
     category: 'jewelry',
     images: [
-      '/images/products/jewelry-6.jpg',
-      '/images/products/jewelry-7.jpg',
-      '/images/products/jewelry-8.jpg'
+      '/images/pixieset/a8db32aad36ade99fab054ea88322b62-large.jpg',
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -175,40 +180,40 @@ export const products: Product[] = [
   },
   {
     id: 'prod-017',
-    name: 'Statement Brass Necklace',
-    description: 'Bold brass necklace with African-inspired geometric pendant. Adjustable length for versatile styling.',
+    name: 'Statement Beaded Necklace',
+    description: 'Bold beaded necklace with African-inspired layered design. A striking statement piece handcrafted by Maasai artisans.',
     price: 5800,
     originalPrice: 7000,
     category: 'jewelry',
     images: [
-      '/images/products/jewelry-9.jpg',
-      '/images/products/jewelry-10.jpg'
+      '/images/pixieset/a8db32aad36ade99fab054ea88322b62-large.jpg',
+      '/images/pixieset/946193773ab6d9624b40059204baec3a-large.jpg'
     ],
     inStock: true,
     featured: true,
-    materials: ['Brass', 'Leather cord'],
+    materials: ['Glass beads', 'Leather cord'],
     artisan: 'Metalworks Kenya',
     origin: 'Nairobi, Kenya'
   },
 
-  // === WALL ART (3 products, 5 images) ===
+  // === WALL ART ===
   {
     id: 'prod-003',
-    name: 'African Sunset Canvas Print',
-    description: 'Stunning canvas print capturing the beauty of an African sunset over the savanna. Perfect for adding warmth and color to any room.',
+    name: 'Decorative Soapstone Plate — Hakuna Matata',
+    description: 'Hand-painted soapstone decorative plate with the iconic "Hakuna Matata" design featuring Maasai warriors. Displayed on a wooden easel stand, perfect as a gift or wall piece.',
     price: 12500,
     originalPrice: 15000,
     category: 'wall-art',
     images: [
-      '/images/products/wall-art-1.jpg',
-      '/images/products/wall-art-2.jpg'
+      '/images/pixieset/ec70593e00b9f0d06927b354910dfe20-large.jpg',
+      '/images/pixieset/b9fd59d128f7241e9c674cbd56ce8b73-large.jpg'
     ],
     inStock: true,
     featured: true,
-    materials: ['Premium canvas', 'Wooden frame'],
-    dimensions: '80cm x 60cm',
+    materials: ['Soapstone', 'Natural pigments', 'Wooden easel'],
+    dimensions: '30cm diameter',
     artisan: 'Wanjiku Arts Studio',
-    origin: 'Nairobi, Kenya'
+    origin: 'Kisii, Kenya'
   },
   {
     id: 'prod-010',
@@ -217,8 +222,8 @@ export const products: Product[] = [
     price: 9500,
     category: 'wall-art',
     images: [
-      '/images/products/wall-art-3.jpg',
-      '/images/products/wall-art-4.jpg'
+      '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg',
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -229,23 +234,23 @@ export const products: Product[] = [
   },
   {
     id: 'prod-012',
-    name: 'African Batik Wall Hanging',
-    description: 'Hand-dyed batik fabric featuring traditional African wildlife scene. Ready to hang with wooden dowel.',
+    name: 'Karibu Kenya Decorative Plate',
+    description: 'Hand-painted soapstone plate featuring African wildlife with a "Welcome to Kenya" greeting. A beautiful keepsake displayed on a wooden stand.',
     price: 7500,
     category: 'wall-art',
     images: [
-      '/images/products/wall-art-5.jpg',
-      '/images/products/wall-art-1.jpg'
+      '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg',
+      '/images/pixieset/ec70593e00b9f0d06927b354910dfe20-large.jpg'
     ],
     inStock: true,
     featured: true,
-    materials: ['Cotton fabric', 'Natural dyes', 'Wooden dowel'],
-    dimensions: '100cm x 80cm',
+    materials: ['Soapstone', 'Natural pigments', 'Wooden easel'],
+    dimensions: '28cm diameter',
     artisan: 'Batik Arts Kenya',
-    origin: 'Nairobi, Kenya'
+    origin: 'Kisii, Kenya'
   },
 
-  // === TEXTILES (3 products, 5 images) ===
+  // === TEXTILES ===
   {
     id: 'prod-004',
     name: 'Kikoy Beach Wrap',
@@ -253,8 +258,8 @@ export const products: Product[] = [
     price: 2500,
     category: 'textiles',
     images: [
-      '/images/products/textiles-1.jpg',
-      '/images/products/textiles-2.jpg'
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg',
+      '/images/pixieset/e78cb17c7c808746b3badb7320016d34-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -269,8 +274,8 @@ export const products: Product[] = [
     price: 3200,
     category: 'textiles',
     images: [
-      '/images/products/textiles-3.jpg',
-      '/images/products/textiles-4.jpg'
+      '/images/pixieset/e78cb17c7c808746b3badb7320016d34-large.jpg',
+      '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -285,8 +290,8 @@ export const products: Product[] = [
     price: 4500,
     category: 'textiles',
     images: [
-      '/images/products/textiles-5.jpg',
-      '/images/products/textiles-3.jpg'
+      '/images/pixieset/c59b231f3483b143ab77e7a8fdb3774d-large.jpg',
+      '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -295,24 +300,24 @@ export const products: Product[] = [
     origin: 'Kenya'
   },
 
-  // === POTTERY (3 products, 6 images) ===
+  // === POTTERY ===
   {
     id: 'prod-005',
-    name: 'Terracotta Decorative Vase',
-    description: 'Hand-thrown terracotta vase with traditional geometric patterns. Each piece is unique, fired using traditional methods.',
+    name: 'Decorative Soapstone Bowl',
+    description: 'Hand-carved soapstone bowl with traditional geometric patterns. Each piece is unique, polished to a smooth finish that highlights the natural stone colour.',
     price: 6500,
     category: 'pottery',
     images: [
-      '/images/products/pottery-1.jpg',
-      '/images/products/pottery-2.jpg'
+      '/images/pixieset/d2283af892d14e2500dd97251e416590-large.jpg',
+      '/images/pixieset/ec70593e00b9f0d06927b354910dfe20-large.jpg'
     ],
     inStock: true,
     featured: true,
-    materials: ['Terracotta clay', 'Natural pigments'],
-    dimensions: '35cm height, 20cm diameter',
+    materials: ['Kisii soapstone', 'Natural polish'],
+    dimensions: '25cm diameter, 10cm depth',
     weight: '2.5kg',
     artisan: 'Wambu Pottery',
-    origin: 'Nyeri, Kenya'
+    origin: 'Kisii, Kenya'
   },
   {
     id: 'prod-013',
@@ -321,8 +326,8 @@ export const products: Product[] = [
     price: 4200,
     category: 'pottery',
     images: [
-      '/images/products/pottery-3.jpg',
-      '/images/products/pottery-4.jpg'
+      '/images/pixieset/d2283af892d14e2500dd97251e416590-large.jpg',
+      '/images/pixieset/c7f6bd23bc6b9a7e57180693a4a5f177-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -339,8 +344,8 @@ export const products: Product[] = [
     price: 5500,
     category: 'pottery',
     images: [
-      '/images/products/pottery-5.jpg',
-      '/images/products/pottery-6.jpg'
+      '/images/pixieset/d2283af892d14e2500dd97251e416590-large.jpg',
+      '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -351,16 +356,16 @@ export const products: Product[] = [
     origin: 'Kisumu, Kenya'
   },
 
-  // === BASKETS (3 products, 6 images) ===
+  // === BASKETS ===
   {
     id: 'prod-006',
-    name: 'Sisal Woven Basket - Large',
+    name: 'Sisal Woven Basket — Large',
     description: 'Beautiful hand-woven sisal basket perfect for storage or as a decorative piece. Features intricate patterns in earth tones.',
     price: 3800,
     category: 'baskets',
     images: [
-      '/images/products/baskets-1.jpg',
-      '/images/products/baskets-2.jpg'
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg',
+      '/images/pixieset/c59b231f3483b143ab77e7a8fdb3774d-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -376,8 +381,8 @@ export const products: Product[] = [
     price: 2800,
     category: 'baskets',
     images: [
-      '/images/products/baskets-3.jpg',
-      '/images/products/baskets-4.jpg'
+      '/images/pixieset/e78cb17c7c808746b3badb7320016d34-large.jpg',
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -393,8 +398,8 @@ export const products: Product[] = [
     price: 6200,
     category: 'baskets',
     images: [
-      '/images/products/baskets-5.jpg',
-      '/images/products/baskets-6.jpg'
+      '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg',
+      '/images/pixieset/e78cb17c7c808746b3badb7320016d34-large.jpg'
     ],
     inStock: true,
     featured: false,
@@ -402,6 +407,120 @@ export const products: Product[] = [
     dimensions: 'Small: 20cm, Medium: 30cm, Large: 40cm diameter',
     artisan: 'Coastal Weavers',
     origin: 'Lamu, Kenya'
+  },
+
+  // === STONE ARTS ===
+  {
+    id: 'prod-021',
+    name: 'Soapstone Chess Set — Blue & White',
+    description: 'Beautifully hand-carved soapstone chess set with animal-themed pieces on a blue and white board. Each piece is individually carved and polished.',
+    price: 7500,
+    originalPrice: 9500,
+    category: 'stone-arts',
+    images: [
+      '/images/pixieset/67ae2cff94bbf38ebdbea07a11ec6ef8-large.jpg',
+      '/images/pixieset/26a0396e5c2f92978a0d340c8656fb7e-large.jpg'
+    ],
+    inStock: true,
+    featured: true,
+    materials: ['Kisii soapstone', 'Natural stone polish'],
+    dimensions: '40cm x 40cm board',
+    weight: '2.5kg',
+    artisan: 'Tabaka Stone Carvers',
+    origin: 'Kisii, Kenya'
+  },
+  {
+    id: 'prod-022',
+    name: 'Soapstone Decorative Plate Display',
+    description: 'Set of hand-painted soapstone decorative plates featuring iconic African wildlife and Swahili greetings — Hakuna Matata, Karibu Kenya, Jambo Africa. Each on its own wooden easel stand.',
+    price: 9800,
+    category: 'stone-arts',
+    images: [
+      '/images/pixieset/fbfeffabb7ef9d439f846fda2634486a-large.jpg',
+      '/images/pixieset/b9fd59d128f7241e9c674cbd56ce8b73-large.jpg'
+    ],
+    inStock: true,
+    featured: true,
+    materials: ['Soapstone', 'Natural pigments', 'Wooden easel'],
+    dimensions: '25–30cm diameter each',
+    weight: '0.8kg each',
+    artisan: 'Kisii Stone Art Studio',
+    origin: 'Kisii, Kenya'
+  },
+  {
+    id: 'prod-023',
+    name: 'Black Soapstone Chess Set',
+    description: 'Striking ebony-finished soapstone chess set with hand-carved tribal pieces on a decorative board. A collector\'s piece that doubles as a playable game.',
+    price: 6200,
+    category: 'stone-arts',
+    images: [
+      '/images/pixieset/64a6d23dd447460d8ce6dfb76d59c234-large.jpg',
+      '/images/pixieset/c7f6bd23bc6b9a7e57180693a4a5f177-large.jpg'
+    ],
+    inStock: true,
+    featured: false,
+    materials: ['Dense grey soapstone'],
+    dimensions: '40cm x 40cm board',
+    weight: '3kg',
+    artisan: 'Tabaka Stone Carvers',
+    origin: 'Kisii, Kenya'
+  },
+  {
+    id: 'prod-024',
+    name: 'Rose Soapstone Chess Set',
+    description: 'Elegant pink and cream soapstone chess set with intricately carved animal pieces. The rose-toned board and pieces make this a beautiful display item as well as a playable set.',
+    price: 5400,
+    originalPrice: 6500,
+    category: 'stone-arts',
+    images: [
+      '/images/pixieset/2b9e17c122788df3a34e2454b413d027-large.jpg',
+      '/images/pixieset/c59b231f3483b143ab77e7a8fdb3774d-large.jpg'
+    ],
+    inStock: true,
+    featured: false,
+    materials: ['Fine-grain soapstone', 'Natural pigment finish'],
+    dimensions: '40cm x 40cm board',
+    weight: '2.8kg',
+    artisan: 'Kisii Stone Art Studio',
+    origin: 'Kisii, Kenya'
+  },
+  {
+    id: 'prod-026',
+    name: 'Colourful Animal Figurines (Set of 10)',
+    description: 'Vibrant hand-painted miniature animal figurines made from soapstone. Each set includes a variety of safari animals painted in bold, eye-catching colours. Perfect as gifts or decorative collectibles.',
+    price: 2500,
+    category: 'stone-arts',
+    images: [
+      '/images/pixieset/03b54ae888f3cdd0201c598c3d0ea40b-large.jpg',
+      '/images/pixieset/28b15180ee0c2c2e60db8f05877872c6-large.jpg'
+    ],
+    inStock: true,
+    featured: true,
+    materials: ['Soapstone', 'Non-toxic paint'],
+    dimensions: 'Each approx 4–6cm',
+    weight: '0.3kg total',
+    artisan: 'Kisii Figurine Painters',
+    origin: 'Kisii, Kenya'
+  },
+
+  // === TEXTILES - FAN PRODUCT ===
+  {
+    id: 'prod-025',
+    name: 'Traditional Handwoven Fan',
+    description: 'Beautifully handcrafted traditional fan made from natural materials. This functional and decorative piece features traditional African patterns and is perfect for keeping cool while adding cultural elegance to any space.',
+    price: 1500,
+    category: 'textiles',
+    images: [
+      '/images/pixieset/924f6cf0ee0ec8c9eab562345ca3f512-large.jpg',
+      '/images/pixieset/dd4b7ad10e991a7c3cc7b051d3eaecfe-large.jpg'
+    ],
+    inStock: true,
+    featured: true,
+    materials: ['Natural fibers', 'Bamboo frame', 'Traditional fabric'],
+    dimensions: '40cm diameter',
+    weight: '0.3kg',
+    artisan: 'Traditional Weavers Collective',
+    origin: 'Nairobi, Kenya'
   }
 ];
 

@@ -73,7 +73,7 @@ export default function EmailCartForm() {
     };
 
     const message = generateWhatsAppMessage(emailData);
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '254700000000';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '254118501949';
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 

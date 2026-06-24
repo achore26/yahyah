@@ -49,7 +49,7 @@ export default function ContactPage() {
   };
 
   const handleWhatsApp = () => {
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '254700000000';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '254118501949';
     window.open(`https://wa.me/${whatsappNumber}?text=Hello! I have a question about YAHYAH Curio Shop.`, '_blank');
   };
 
@@ -84,7 +84,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-stone-900">Phone</h3>
-                    <p className="text-stone-600">+254 700 000 000</p>
+                    <p className="text-stone-600">+254 118 501 949</p>
+                    <p className="text-stone-600">0119 628 656</p>
                     <p className="text-sm text-stone-500">Mon-Sat, 9am-6pm EAT</p>
                   </div>
                 </div>
@@ -95,7 +96,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-stone-900">Email</h3>
-                    <p className="text-stone-600">info@yahyahcurio.co.ke</p>
+                    <p className="text-stone-600">info@yahyah.co.ke</p>
                     <p className="text-sm text-stone-500">We reply within 24 hours</p>
                   </div>
                 </div>

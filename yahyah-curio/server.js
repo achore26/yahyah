@@ -1,30 +1,43 @@
+#!/usr/bin/env node
+
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
 
 const dev = process.env.NODE_ENV !== 'production';
-const hostname = process.env.HOSTNAME || 'localhost';
+const hostname = process.env.HOSTNAME || '0.0.0.0';
 const port = parseInt(process.env.PORT || '3000', 10);
 
-const app = next({ dev, hostname, port });
+console.log('Starting Next.js server...');
+console.log('Environment:', dev ? 'development' : 'production');
+console.log('Port:', port);
+
+const app = next({ dev, hostname, port, dir: __dirname });
 const handle = app.getRequestHandler();
 
-app.prepare().then(() => {
-  createServer(async (req, res) => {
-    try {
-      const parsedUrl = parse(req.url, true);
-      await handle(req, res, parsedUrl);
-    } catch (err) {
-      console.error('Error occurred handling', req.url, err);
-      res.statusCode = 500;
-      res.end('internal server error');
-    }
-  })
-    .once('error', (err) => {
-      console.error(err);
-      process.exit(1);
+app.prepare()
+  .then(() => {
+    console.log('Next.js app prepared successfully');
+    
+    createServer(async (req, res) => {
+      try {
+        const parsedUrl = parse(req.url, true);
+        await handle(req, res, parsedUrl);
+      } catch (err) {
+        console.error('Error occurred handling', req.url, err);
+        res.statusCode = 500;
+        res.end('internal server error');
+      }
     })
-    .listen(port, () => {
-      console.log(`> Ready on http://${hostname}:${port}`);
-    });
-});
+      .once('error', (err) => {
+        console.error('Server error:', err);
+        process.exit(1);
+      })
+      .listen(port, hostname, () => {
+        console.log(`> Ready on http://${hostname}:${port}`);
+      });
+  })
+  .catch((err) => {
+    console.error('Failed to prepare Next.js app:', err);
+    process.exit(1);
+  });

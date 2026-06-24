@@ -3,50 +3,45 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductGrid from '@/components/products/ProductGrid';
-import {
-  categories,
-  getCategoryById,
-  getProductsByCategory
-} from '@/lib/products';
+import { categories, getCategoryById, getProductsByCategory } from '@/lib/products';
 import { CategoryType } from '@/types';
 import { ChevronLeft } from 'lucide-react';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yahyah.co.ke';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
 export async function generateStaticParams() {
-  return categories.map(category => ({
-    category: category.id
-  }));
+  return categories.map(category => ({ category: category.id }));
 }
 
-export async function generateMetadata({
-  params
-}: CategoryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { category: categoryId } = await params;
   const category = getCategoryById(categoryId as CategoryType);
 
-  if (!category) {
-    return {
-      title: 'Category Not Found'
-    };
-  }
+  if (!category) return { title: 'Category Not Found' };
+
+  const imageUrl = category.image.startsWith('http')
+    ? category.image
+    : `${SITE_URL}${category.image}`;
 
   return {
-    title: category.name,
-    description: category.description,
+    title: `African ${category.name} — Buy Handcrafted ${category.name} Online | Kenya`,
+    description: `Shop authentic African ${category.name.toLowerCase()} from Kenya. ${category.description} All handcrafted by skilled artisans. M-Pesa accepted. Worldwide shipping from YAHYAH Curio Shop, Nairobi.`,
+    alternates: { canonical: `/categories/${categoryId}` },
     openGraph: {
-      title: `${category.name} - YAHYAH Curio Shop`,
-      description: category.description,
-      images: [
-        {
-          url: category.image,
-          width: 1200,
-          height: 630,
-          alt: category.name
-        }
-      ]
+      title: `African ${category.name} — YAHYAH Curio Shop, Nairobi Kenya`,
+      description: `${category.description} Buy authentic handcrafted African ${category.name.toLowerCase()} online. Shipped worldwide from Nairobi.`,
+      url: `/categories/${categoryId}`,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: `African ${category.name} — YAHYAH Curio Shop` }]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `African ${category.name} | YAHYAH Curio Shop`,
+      description: `${category.description} Buy handcrafted African ${category.name.toLowerCase()} online from Nairobi, Kenya.`,
+      images: [imageUrl]
     }
   };
 }
@@ -55,19 +50,40 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: categoryId } = await params;
   const category = getCategoryById(categoryId as CategoryType);
 
-  if (!category) {
-    notFound();
-  }
+  if (!category) notFound();
 
   const products = getProductsByCategory(category.id);
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Categories', item: `${SITE_URL}/categories` },
+      { '@type': 'ListItem', position: 3, name: category.name, item: `${SITE_URL}/categories/${categoryId}` }
+    ]
+  };
+
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `African ${category.name} — YAHYAH Curio Shop`,
+    description: category.description,
+    url: `${SITE_URL}/categories/${categoryId}`,
+    numberOfItems: products.length,
+    provider: { '@type': 'Organization', name: 'YAHYAH Curio Shop', url: SITE_URL }
+  };
+
   return (
     <div className="min-h-screen bg-stone-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
+
       {/* Hero Section */}
       <div className="relative h-64 md:h-80">
         <Image
           src={category.image}
-          alt={category.name}
+          alt={`African ${category.name} — YAHYAH Curio Shop`}
           fill
           className="object-cover"
           priority
@@ -106,18 +122,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         {/* Browse Other Categories */}
         <div className="mt-16 pt-16 border-t border-stone-200">
-          <h2 className="text-2xl font-bold text-stone-900 mb-8">
-            Browse Other Categories
-          </h2>
+          <h2 className="text-2xl font-bold text-stone-900 mb-8">Browse Other Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {categories
               .filter(c => c.id !== category.id)
               .map(cat => (
-                <Link
-                  key={cat.id}
-                  href={`/categories/${cat.id}`}
-                  className="group relative h-32 rounded-xl overflow-hidden"
-                >
+                <Link key={cat.id} href={`/categories/${cat.id}`} className="group relative h-32 rounded-xl overflow-hidden">
                   <Image
                     src={cat.image}
                     alt={cat.name}
@@ -127,9 +137,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   />
                   <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white font-semibold text-center px-2">
-                      {cat.name}
-                    </span>
+                    <span className="text-white font-semibold text-center px-2">{cat.name}</span>
                   </div>
                 </Link>
               ))}
