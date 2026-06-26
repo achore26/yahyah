@@ -80,6 +80,9 @@ export const metadata: Metadata = {
       'Authentic African art, Maasai jewelry, wood carvings and curios from Nairobi, Kenya. M-Pesa accepted. Worldwide shipping.',
     images: ['/images/og-image.jpg']
   },
+  verification: {
+    google: '90cp-iqFB3jTnot9xV2SHlWYnoREz8xR7xoLIGy8LO4'
+  },
   robots: {
     index: true,
     follow: true,
